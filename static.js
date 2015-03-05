@@ -15,13 +15,6 @@ http.createServer(function (req, res) {
   });
 }).listen(80);
 
-
-
-var options = {
-    hostname: 'localhost',
-    port: '80',
-    path: '/hello.html'
-  };
 function handleResponse(response) {
   var serverData = '';
   response.on('data', function (chunk) {
@@ -31,6 +24,3 @@ function handleResponse(response) {
     console.log(serverData);
   });
 }
-http.request(options, function(response){
-  handleResponse(response);
-}).end();
