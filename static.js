@@ -13,13 +13,13 @@ http.createServer(function (req, res) {
     res.writeHead(200);
     res.end(data);
   });
-}).listen(8080);
+}).listen(80);
 
 
 
 var options = {
     hostname: 'localhost',
-    port: '8080',
+    port: '80',
     path: '/hello.html'
   };
 function handleResponse(response) {
