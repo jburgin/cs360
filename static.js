@@ -9,9 +9,9 @@ http.createServer(function (req, res) {
 		console.log("URL query " + urlObj.query["q"]);
 		fs.readFile('cities.dat.txt', function (err, data) {
 			if (err) throw err;
-			cities = data.toString().split("\n");
+			var cities = data.toString().split("\n");
 			var myRe = new RegExp("^" + urlObj.query["q"]);
-				console.log(myRe);
+				console.log(cities);
 			var jsonresult = [];
 			for (var i = 0; i < cities.length; i++) {
 				var result = cities[i].search(myRe);
