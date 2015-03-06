@@ -20,7 +20,7 @@
 	
 	<script>
 		$(document).ready(function() {
-			var url = "http://cs360.jeffburgin.com/getcity.cgi?callback=?&q=";
+			var url = "http://cs360.jeffburgin.com/getcity.cgi?q=";
 			var wurl = "https://api.wunderground.com/api/7da9614bee447637/conditions/q/UT/"
 			$("#cityfield").keyup(function() {
 				$.getJSON(url + $("#cityfield").val(), function(data) {
