@@ -32,5 +32,5 @@ http.createServer(function (req, res) {
 			res.end(data);
 		});
 	
-	});
+	}
 }).listen(80);
