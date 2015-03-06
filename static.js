@@ -11,10 +11,9 @@ http.createServer(function (req, res) {
 			if (err) throw err;
 			var cities = data.toString().split("\n");
 			var myRe = new RegExp("^" + urlObj.query["q"]);
-				console.log(cities);
 			var jsonresult = [];
 			for (var i = 0; i < cities.length; i++) {
-				var result = cities[i].search(myRe);
+				var result = cities[i].search(myRe + "i");
 				if (result != -1) {
 					jsonresult.push({city:cities[i]});
 				}
@@ -32,6 +31,5 @@ http.createServer(function (req, res) {
 			res.writeHead(200);
 			res.end(data);
 		});
-	
 	}
 }).listen(80);
