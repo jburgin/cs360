@@ -11,10 +11,10 @@ http.createServer(function (req, res) {
 			if (err) throw err;
 			cities = data.toString().split("\n");
 			var myRe = new RegExp("^" + urlObj.query["q"]);
+				console.log(myRe);
 			var jsonresult = [];
 			for (var i = 0; i < cities.length; i++) {
 				var result = cities[i].search(myRe);
-				console.log(result);
 				if (result != -1) {
 					jsonresult.push({city:cities[i]});
 				}
