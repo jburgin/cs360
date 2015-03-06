@@ -1,7 +1,7 @@
 {
 	"author": "Jeff Burgin",
 	"name": "lab6-rest",
-	"version": "1.0",
+	"version": "0.1.0",
 	"description": "Simple node server with rest service that returns cities in Utah",
 	"main": "get cities",
 	"repository": {
