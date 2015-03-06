@@ -11,7 +11,7 @@ http.createServer(function (req, res) {
       res.end(JSON.stringify(err));
       return;
     }
-	
+	console.log("URL query: " + urlObj.pathname);
 	if (urlObj.pathname.indexOf("getcity") != -1) {
 		console.log("URL query " + urlObj.query["q"]);
 		fs.readFile('cities.dat.txt', function (err, data) {
