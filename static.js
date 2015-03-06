@@ -9,7 +9,7 @@ http.createServer(function (req, res) {
 		fs.readFile('cities.dat.txt', function (err, data) {
 			if (err) throw err;
 			var cities = data.toString().split("\n");
-			var myRe = new RegExp("^" + urlObj.query["q"] + "i");
+			var myRe = new RegExp("^" + urlObj.query["q"],"i");
 			console.log(myRe);
 			var jsonresult = [];
 			for (var i = 0; i < cities.length; i++) {
