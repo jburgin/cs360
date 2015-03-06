@@ -14,6 +14,7 @@ http.createServer(function (req, res) {
 			var jsonresult = [];
 			for (var i = 0; i < cities.length; i++) {
 				var result = cities[i].search(myRe);
+				console.log(result);
 				if (result != -1) {
 					jsonresult.push({city:cities[i]});
 				}
