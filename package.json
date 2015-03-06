@@ -1,0 +1,19 @@
+{
+	"author": "Jeff Burgin",
+	"name": "lab6-rest",
+	"version": "1.0",
+	"description": "Simple node server with rest service that returns cities in Utah",
+	"main": "get cities",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jburgin/cs360"
+	},
+	"keywords" : [
+		"byucs360",
+		"getcity"
+	],
+	"dependencies": {},
+	"engines": {
+		"node": "*"
+	}
+}	
