@@ -18,24 +18,25 @@ http.createServer(function (req, res) {
 						jsonresult.push({city:cities[i]});
 					}
 				}
-			} else if (urlObj.pathname === "/comment") {
-				console.log("comment route");
-				if (req.method === "POST") {
-					var jsonData = "";
-					req.on('data', function (chunk) {
-						jsonData += chunk;
-					});
-					req.on('end', function () {
-						var reqObj = JSON.parse(jsonData);
-						console.log(reqObj);
-						console.log("Name: "+reqObj.Name);
-						console.log("Comment: "+reqObj.Comment);
-					});
-				}
-			}
+			} 
 			res.writeHead(200);
 			res.end(JSON.stringify(jsonresult));
 		});
+	} else if (urlObj.pathname === "/comment") {
+		if (req.method === "POST") {
+			var jsonData = "";
+			req.on('data', function (chunk) {
+				jsonData += chunk;
+			});
+			req.on('end', function () {
+				var reqObj = JSON.parse(jsonData);
+				console.log(reqObj);
+				console.log("Name: "+reqObj.Name);
+				console.log("Comment: "+reqObj.Comment);
+			});
+			res.writeHead(200);
+			res.end();
+		}
 	} else {
 		fs.readFile(ROOT_DIR + urlObj.pathname, function (err,data) {
 			if (err) {
