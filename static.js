@@ -18,10 +18,19 @@ http.createServer(function (req, res) {
 						jsonresult.push({city:cities[i]});
 					}
 				}
-			} else if (urlObj.pathname.indexOf("comment") != -1) {
+			} else if (urlObj.pathname === "/comment") != -1) {
 				console.log("comment route");
 				if (req.method === "POST") {
-					console.log("POST comment route");
+					var jsonData = "";
+					req.on('data', function (chunk) {
+						jsonData += chunk;
+					});
+					req.on('end', function () {
+						var reqObj = JSON.parse(jsonData);
+						console.log(reqObj);
+						console.log("Name: "+reqObj.Name);
+						console.log("Comment: "+reqObj.Comment);
+					});
 				}
 			}
 			res.writeHead(200);
