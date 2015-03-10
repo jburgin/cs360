@@ -10,7 +10,7 @@ $(document).ready(function(){
         $("#json").text(jobj);
 		var url = "http://cs360.jeffburgin.com/comment";
 		$.post(url,jobj,function(data,textStatus) {
-			$("#done").append(textStatus);
+			$("#done").append(textStatus + "<br />");
 		});
     });
 });

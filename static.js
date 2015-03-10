@@ -36,7 +36,7 @@ http.createServer(function (req, res) {
 				
 				// Now put it into the database
 				var MongoClient = require('mongodb').MongoClient;
-				MongoClient.connect("mongodb://localhost/comments", function(err, db) {
+				MongoClient.connect("mongodb://localhost/weather", function(err, db) {
 					if(err) throw err;
 					db.collection('comments').insert(reqObj,function(err, records) {
 						console.log("Record added as "+records[0]._id);
@@ -45,6 +45,21 @@ http.createServer(function (req, res) {
 			});
 			res.writeHead(200);
 			res.end();
+		} else if (req.method === "GET") {
+			// Read all of the database entries and return them in a JSON array
+		  var MongoClient = require('mongodb').MongoClient;
+		  MongoClient.connect("mongodb://localhost/weather", function(err, db) {
+			if(err) throw err;
+			db.collection("comments", function(err, comments){
+			  if(err) throw err;
+			  comments.find(function(err, items){
+				items.toArray(function(err, itemArr){
+				  console.log("Document Array: ");
+				  console.log(itemArr);
+				});
+			  });
+			});
+		  });
 		}
 	} else {
 		fs.readFile(ROOT_DIR + urlObj.pathname, function (err,data) {
