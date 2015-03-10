@@ -18,6 +18,11 @@ http.createServer(function (req, res) {
 						jsonresult.push({city:cities[i]});
 					}
 				}
+			} else if (urlObj.pathname.indexOf("comment") != -1) {
+				console.log("comment route");
+				if (req.method === "POST") {
+					console.log("POST comment route");
+				}
 			}
 			res.writeHead(200);
 			res.end(JSON.stringify(jsonresult));
