@@ -18,7 +18,7 @@ http.createServer(function (req, res) {
 						jsonresult.push({city:cities[i]});
 					}
 				}
-			} else if (urlObj.pathname === "/comment") != -1) {
+			} else if (urlObj.pathname === "/comment") {
 				console.log("comment route");
 				if (req.method === "POST") {
 					var jsonData = "";
