@@ -4,7 +4,7 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 <script>
 $(document).ready(function(){
-    $("button").click(function(){
+    $("#button").click(function(){
         var myobj = {Name:$("#Name").val(),Comment:$("#Comment").val()};
         var jobj = JSON.stringify(myobj);
         $("#json").text(jobj);
@@ -13,6 +13,19 @@ $(document).ready(function(){
 			$("#done").append(textStatus + "<br />");
 		});
     });
+	
+	$("#button2").click(function() {
+		var url = "http://cs360.jeffburgin.com/comment";
+      $.getJSON(url,function(data) {
+        var everything;
+        everything = "<ul>";
+        $.each(data, function(i,item) {
+          everything += "<li> Name: "+data[i].Name+" Comment: "+data[i].Comment;
+        });
+        everything += "</ul>";
+        $("#currentComments").html(everything);
+      });
+	});
 });
 </script>
 </head>
@@ -23,8 +36,8 @@ $(document).ready(function(){
   comment: <input type="text" id="Comment" value="Hello"><br>
 </form>
 
-<button>Serialize form values</button>
-
+<button id="button">Save Comment</button>
+<button id="button2">Show Comments</button>
 <div id="json"></div>
 
 <div id="done"></div>

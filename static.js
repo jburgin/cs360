@@ -54,8 +54,8 @@ http.createServer(function (req, res) {
 			  if(err) throw err;
 			  comments.find(function(err, items){
 				items.toArray(function(err, itemArr){
-				  console.log("Document Array: ");
-				  console.log(itemArr);
+				  res.writeHead(200);
+				  res.end(JSON.stringify(itemArr));
 				});
 			  });
 			});
