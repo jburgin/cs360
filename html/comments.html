@@ -9,9 +9,16 @@ $(document).ready(function(){
         var jobj = JSON.stringify(myobj);
         $("#json").text(jobj);
 		var url = "http://cs360.jeffburgin.com/comment";
-		$.post(url,jobj,function(data,textStatus) {
-			$("#done").append(textStatus + "<br />");
-		});
+        jQuery.ajax ({
+            url: url,
+            type: "POST",
+            data: jobj,
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function(){
+              $("#done").append("Success");
+            }
+        })
     });
 	
 	$("#button2").click(function() {

@@ -1,9 +1,11 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
 var url = require('url');
 var app = express();
+app.use(bodyParser());
 var options = {
     host: '127.0.0.1',
     key: fs.readFileSync('ssl/server.key'),
@@ -26,6 +28,43 @@ var options = {
 					}
 				}
 			} 
+			res.status(200);
 			res.json(jsonresult);
 		});
+  });
+  app.get('/comment', function (req, res) {
+	// Read all of the database entries and return them in a JSON array
+	  var MongoClient = require('mongodb').MongoClient;
+	  MongoClient.connect("mongodb://localhost/weather", function(err, db) {
+		if(err) throw err;
+		db.collection("comments", function(err, comments){
+		  if(err) throw err;
+		  comments.find(function(err, items){
+			items.toArray(function(err, itemArr){
+			  res.status(200);
+			  res.json(itemArr);
+			});
+		  });
+		});
+	  });
+  });
+  app.post('/comment', function (req, res) {
+	var jsonData = "";
+	req.on('data', function (chunk) {
+		jsonData += chunk;
+	});
+	req.on('end', function () {
+		var reqObj = JSON.parse(jsonData);
+		
+		// Now put it into the database
+		var MongoClient = require('mongodb').MongoClient;
+		MongoClient.connect("mongodb://localhost/weather", function(err, db) {
+			if(err) throw err;
+			db.collection('comments').insert(reqObj,function(err, records) {
+				console.log("Record added as "+records[0]._id);
+			});
+		});
+	});
+	res.status(200);
+	res.end();
   });
