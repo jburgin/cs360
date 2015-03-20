@@ -55,7 +55,7 @@ var options = {
 	  });
   });
   app.post('/comment', auth, function (req, res) {
-		var comment = JSON.parse(req.body);
+		var comment = '{ Name: \'' + req.body.Name + '\', Comment: \'' + req.body.Comment + '\' }';
 		console.log(comment);
 		// Now put it into the database
 		var MongoClient = require('mongodb').MongoClient;
