@@ -56,7 +56,7 @@ var options = {
   });
   app.post('/comment', auth, function (req, res) {
 		var comment = '{ Name: \'' + req.body.Name + '\', Comment: \'' + req.body.Comment + '\' }';
-		console.log(comment);
+		console.log(req.body);
 		// Now put it into the database
 		var MongoClient = require('mongodb').MongoClient;
 		MongoClient.connect("mongodb://localhost/weather", function(err, db) {
