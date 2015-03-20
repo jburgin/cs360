@@ -15,6 +15,7 @@ var options = {
   app.get('/getcity', function (req, res) {
     fs.readFile('cities.dat.txt', function (err, data) {
 			if (err) throw err;
+			console.log("made it past reading the file");
 			var cities = data.toString().split("\n");
 			var myRe = new RegExp("^" + urlObj.query["q"],"i"); // the i makes it case insensitive
 			var jsonresult = []; // return empty if 
@@ -26,6 +27,6 @@ var options = {
 					}
 				}
 			} 
-			res.json(JSON.stringify(jsonresult));
+			res.json(jsonresult);
 		});
   });
