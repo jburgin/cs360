@@ -55,7 +55,7 @@ var options = {
 	  });
   });
   app.post('/comment', auth, function (req, res) {
-
+		console.log(req.body);
 		var comment = '{Name:' + req.body.Name + ', Comment:' + req.body.Comment + '}';
 		
 		// Now put it into the database
