@@ -55,13 +55,11 @@ var options = {
 	  });
   });
   app.post('/comment', auth, function (req, res) {
-		var comment = '{ Name: \'' + req.body.Name + '\', Comment: \'' + req.body.Comment + '\' }';
-		console.log(req.body);
 		// Now put it into the database
 		var MongoClient = require('mongodb').MongoClient;
 		MongoClient.connect("mongodb://localhost/weather", function(err, db) {
 			if(err) throw err;
-			db.collection('comments').insert(comment,function(err, records) {
+			db.collection('comments').insert(req.body,function(err, records) {
 				console.log("Record added as "+records[0]._id);
 			});
 		});
