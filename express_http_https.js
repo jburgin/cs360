@@ -15,13 +15,12 @@ var options = {
   app.get('/getcity', function (req, res) {
     fs.readFile('cities.dat.txt', function (err, data) {
 			if (err) throw err;
-			console.log("made it past reading the file");
+			console.log("param:" + req.params.q);
 			var cities = data.toString().split("\n");
-			var myRe = new RegExp("^" + urlObj.query["q"],"i"); // the i makes it case insensitive
 			var jsonresult = []; // return empty if 
-			if (urlObj.query["q"] != "") {
+			if (req.params.q != "") {
 				for (var i = 0; i < cities.length; i++) {
-					var result = cities[i].search(myRe);
+					var result = cities[i].search(req.params.q);
 					if (result != -1) {
 						jsonresult.push({city:cities[i]});
 					}
