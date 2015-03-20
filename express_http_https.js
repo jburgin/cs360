@@ -15,7 +15,7 @@ var options = {
   app.get('/getcity', function (req, res) {
     fs.readFile('cities.dat.txt', function (err, data) {
 			if (err) throw err;
-			console.log("param:" + req.params.q);
+			console.log("param:" + req.param.q);
 			var cities = data.toString().split("\n");
 			var jsonresult = []; // return empty if 
 			if (req.params.q != "") {
