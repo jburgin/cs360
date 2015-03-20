@@ -11,6 +11,12 @@ var options = {
     key: fs.readFileSync('ssl/server.key'),
     cert: fs.readFileSync('ssl/server.crt')
 };
+  
+  var basicAuth = require('basic-auth-connect');
+  var auth = basicAuth(function(user, pass) {
+    return((user ==='cs360')&&(pass === 'test'));
+  });
+
   http.createServer(app).listen(80);
   https.createServer(options, app).listen(443);
   app.use('/', express.static('./html', {maxAge: 60*60*1000}));
@@ -48,7 +54,7 @@ var options = {
 		});
 	  });
   });
-  app.post('/comment', function (req, res) {
+  app.post('/comment', auth, function (req, res) {
 	var jsonData = "";
 	req.on('data', function (chunk) {
 		jsonData += chunk;
