@@ -15,7 +15,7 @@ angular.module('weatherNews', ['ui.router'])
 			controller: 'MainCtrl'
 		});
 		$urlRouterProvider.otherwise('home');
-	}]);
+	}])
 .controller('MainCtrl', [
   '$scope',
   'postFactory',
