@@ -77,6 +77,7 @@ angular.module('weatherNews', ['ui.router'])
 	'$state',
 	function ($scope, $stateParams, postFactory, $state) {
 		var mypost = postFactory.posts[$stateParams.id];
+		// No post info so go back and get a post!
 		if (typeof mypost === 'undefined') {
 			$state.go('home');
 		}
