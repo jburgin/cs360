@@ -10,5 +10,9 @@ angular.module('weatherNews', [])
       {title:'Post 4', upvotes:4},
       {title:'Post 5', upvotes:3}
     ];
+	$scope.addPost = function() {
+		$scope.posts.push({title:$scope.formContent, upvotes:0});
+		$scope.formContent='';
+	};
   }
 ]);
