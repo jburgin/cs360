@@ -18,7 +18,12 @@ angular.module('weatherNews', ['ui.router'])
 ])
 .factory('postFactory', [function() {
 	var o = {
-		posts: [{title:'test', upvotes:5, comments:[]}]
+		posts: []
+	};
+	o.getAll = function() {
+			return $http.get('http://cs360.jeffburgin.com/posts').success(function(data) {
+				angular.copy(data, o.posts);
+			});
 	};
 	return o;
 }])
@@ -26,6 +31,7 @@ angular.module('weatherNews', ['ui.router'])
   '$scope',
   'postFactory',
   function($scope, postFactory){
+	postFactory.getAll();
     $scope.test = 'Hello world!';
     $scope.posts = postFactory.posts;
 	$scope.addPost = function() {
