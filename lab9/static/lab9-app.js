@@ -1,10 +1,4 @@
 angular.module('weatherNews', ['ui.router'])
-.factory('postFactory', [function() {
-	var o = {
-		posts: [{title:'test', upvotes:5, comments:[]}]
-	};
-	return o;
-}])
 .config([
 	'$stateProvider',
 	'$urlRouterProvider',
@@ -20,7 +14,14 @@ angular.module('weatherNews', ['ui.router'])
 			controller: 'PostCtrl'
 		});
 		$urlRouterProvider.otherwise('home');
-	}])
+	}
+])
+.factory('postFactory', [function() {
+	var o = {
+		posts: [{title:'test', upvotes:5, comments:[]}]
+	};
+	return o;
+}])
 .controller('MainCtrl', [
   '$scope',
   'postFactory',
@@ -40,7 +41,7 @@ angular.module('weatherNews', ['ui.router'])
 	'$scope',
 	'$stateParams',
 	'postFactory',
-	function ($scote, $stateParams, postFactory) {
+	function ($scope, $stateParams, postFactory) {
 		$scope.post = postFactory.posts[$stateParams.id];
 		$scope.addComment = function() {
 			if ($scope.body === '') {return;}
