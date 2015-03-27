@@ -44,6 +44,10 @@ angular.module('weatherNews', ['ui.router'])
 	o.addNewComment = function(id, comment) {
 		return $http.post('/posts/' + id + '/comments', comment);
 	};
+	o.upvoteComment = function(post, comment) {
+		return $http.put('/posts/' + post._id + '/comments/' + comment._id + '/upvote').success(function(data) {
+			comment.upvotes += 1;
+		});
 	return o;
 }])
 .controller('MainCtrl', [
@@ -84,7 +88,7 @@ angular.module('weatherNews', ['ui.router'])
 			$scope.body = '';
 		};
 		$scope.incrementUpvotes = function(comment) {
-			comment.upvotes += 1;
+			postFactory.upvoteComment(postFactory.post, comment);
 		};
 	}
 ]);
