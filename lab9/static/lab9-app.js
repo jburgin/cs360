@@ -1,10 +1,21 @@
-angular.module('weatherNews', [])
+angular.module('weatherNews', ['ui.router'])
 .factory('postFactory', [function() {
 	var o = {
 		posts: [{title:'test', upvotes:15}]
 	};
 	return o;
 }])
+.config([
+	'$stateProvider',
+	'$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider) {
+		$stateProvider.state('home', {
+			url: '/home',
+			templateUrl: '/home',
+			controller: 'MainCtrl'
+		});
+		$urlRouterProvider.otherwise('home');
+	}]);
 .controller('MainCtrl', [
   '$scope',
   'postFactory',
