@@ -14,5 +14,8 @@ angular.module('weatherNews', [])
 		$scope.posts.push({title:$scope.formContent, upvotes:0});
 		$scope.formContent='';
 	};
+	$scope.incrementUpvotes = function(post) {
+		post.upvotes += 1;
+	}
   }
 ]);
