@@ -16,7 +16,7 @@ angular.module('weatherNews', ['ui.router'])
 		$urlRouterProvider.otherwise('home');
 	}
 ])
-.factory('postFactory', [function() {
+.factory('postFactory', ['$http', function($http) {
 	var o = {
 		posts: []
 	};
