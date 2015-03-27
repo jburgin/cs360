@@ -1,7 +1,7 @@
 angular.module('weatherNews', ['ui.router'])
 .factory('postFactory', [function() {
 	var o = {
-		posts: [{title:'test', upvotes:15}]
+		posts: [{title:'test', upvotes:5, comments:[]}]
 	};
 	return o;
 }])
@@ -28,7 +28,7 @@ angular.module('weatherNews', ['ui.router'])
     $scope.test = 'Hello world!';
     $scope.posts = postFactory.posts;
 	$scope.addPost = function() {
-		$scope.posts.push({title:$scope.formContent, upvotes:0});
+		$scope.posts.push({title:$scope.formContent, upvotes:0, comments: []});
 		$scope.formContent='';
 	};
 	$scope.incrementUpvotes = function(post) {
