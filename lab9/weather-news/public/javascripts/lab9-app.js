@@ -76,6 +76,9 @@ angular.module('weatherNews', ['ui.router'])
 	'postFactory',
 	function ($scope, $stateParams, postFactory) {
 		var mypost = postFactory.posts[$stateParams.id];
+		if (typeof mypost === 'undefined') {
+			$location.path("/");
+		}
 		console.log(mypost);
 		postFactory.getPost(mypost._id);
 		$scope.post = postFactory.post;
