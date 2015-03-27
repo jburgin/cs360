@@ -76,7 +76,7 @@ angular.module('weatherNews', ['ui.router'])
 		$scope.addComment = function() {
 			if ($scope.body === '') {return;}
 			postFactory.addNewComment(postFactory.post._id, {
-				body:$scope.body;
+				body:$scope.body
 			}).success(function(comment) {
 				mypost.comments.push(comment);
 				postFactory.post.comments.push(comment);
