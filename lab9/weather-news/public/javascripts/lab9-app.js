@@ -25,6 +25,11 @@ angular.module('weatherNews', ['ui.router'])
 				angular.copy(data, o.posts);
 			});
 	};
+	o.create = function(post) {
+		return $http.post('/posts', post).success(function(data) {
+			o.posts.push(data);
+		});
+	};
 	return o;
 }])
 .controller('MainCtrl', [
@@ -35,7 +40,10 @@ angular.module('weatherNews', ['ui.router'])
     $scope.test = 'Hello world!';
     $scope.posts = postFactory.posts;
 	$scope.addPost = function() {
-		$scope.posts.push({title:$scope.formContent, upvotes:0, comments: []});
+		if ($scope.formContent === '') {return;}
+		postFactory.create({
+			title: $scope.formContent,
+		});
 		$scope.formContent='';
 	};
 	$scope.incrementUpvotes = function(post) {
