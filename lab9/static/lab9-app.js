@@ -1,4 +1,10 @@
 angular.module('weatherNews', [])
+.factory('postFactory', [function() {
+	var o = {
+		posts: []
+	};
+	return o;
+}])
 .controller('MainCtrl', [
   '$scope',
   function($scope){
@@ -16,6 +22,6 @@ angular.module('weatherNews', [])
 	};
 	$scope.incrementUpvotes = function(post) {
 		post.upvotes += 1;
-	}
+	};
   }
 ]);
