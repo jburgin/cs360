@@ -13,6 +13,11 @@ angular.module('weatherNews', ['ui.router'])
 			url: '/home',
 			templateUrl: '/home.html',
 			controller: 'MainCtrl'
+		})
+		.state('posts', {
+			url: '/posts/{id}',
+			templateUrl: '/posts.html',
+			controller: 'PostCtrl'
 		});
 		$urlRouterProvider.otherwise('home');
 	}])
@@ -30,4 +35,23 @@ angular.module('weatherNews', ['ui.router'])
 		post.upvotes += 1;
 	};
   }
+])
+.controller('PostCtrl', [
+	'$scope',
+	'$stateParams',
+	'postFactory',
+	function ($scote, $stateParams, postFactory) {
+		$scope.post = postFactory.posts[$stateParams.id];
+		$scope.addComment = function() {
+			if ($scope.body === '') {return;}
+			$scope.post.comments.push({
+				body: $scope.body,
+				upvotes: 0
+			});
+			$scope.body = '';
+		};
+		$scope.incrementUpvotes = function(comment) {
+			comment.upvotes += 1;
+		};
+	}
 ]);
