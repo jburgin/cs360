@@ -3,7 +3,7 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     expressSession = require('express-session'),
     passport = require('passport'),
-    GoogleStrategy = require('passport-google').Strategy;
+    GoogleStrategy = require('passport-google-oauth2').Strategy;
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -11,10 +11,12 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 passport.use(new GoogleStrategy({
-    returnURL: 'http://cs360.jeffburgin.com/auth/google/return',
-    realm: 'http://cs360.jeffburgin.com/'
+	clientID: "404219045193-n9gvul12t0pio511jbvd3qkucbnkpa44.apps.googleusercontent.com",
+	clientSecret: "404219045193-n9gvul12t0pio511jbvd3qkucbnkpa44@developer.gserviceaccount.com"
+    callbackURL: 'http://cs360.jeffburgin.com/auth/google/return',
+    passReqToCallback: true
   },
-  function(identifier, profile, done) {
+  function(request, accessToken, profile, done) {
     process.nextTick(function () {
       profile.identifier = identifier;
       return done(null, profile);
