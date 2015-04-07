@@ -8,6 +8,10 @@
 </head>
 
 <body ng-app="clusterApp" ng-controller="MainCtrl">
+	<form ng-submit="getPIDs()">
+      <h3>Test PIDs </h3>
+      <button type="submit">TestPIDS</button>
+    </form>
     <ul>
     <div ng-repeat="node in cluster">
       <li>{{node.pid}}</ul>
