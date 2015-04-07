@@ -19,7 +19,7 @@ passport.use(new GoogleStrategy({
     callbackURL: 'http://cs360.jeffburgin.com/auth/google/return',
     passReqToCallback: true
   },
-  function(request, accessToken, profile, done) {
+  function(request, accessToken, refreshToken, profile, done) {
     process.nextTick(function () {
 		console.log(profile.emails);
 	  //User.findOne({"email" : profile.emails
