@@ -12,7 +12,7 @@ passport.deserializeUser(function(obj, done) {
 });
 passport.use(new GoogleStrategy({
 	clientID: "404219045193-n9gvul12t0pio511jbvd3qkucbnkpa44.apps.googleusercontent.com",
-	clientSecret: "404219045193-n9gvul12t0pio511jbvd3qkucbnkpa44@developer.gserviceaccount.com",
+	clientSecret: "gjM9AMVwc1q_mXCuqEU_YL3-",
     callbackURL: 'http://cs360.jeffburgin.com/auth/google/return',
     passReqToCallback: true
   },
