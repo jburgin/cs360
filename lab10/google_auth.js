@@ -3,7 +3,8 @@ var express = require('express'),
     cookieParser = require('cookie-parser'),
     expressSession = require('express-session'),
     passport = require('passport'),
-    GoogleStrategy = require('passport-google-oauth2').Strategy;
+    GoogleStrategy = require('passport-google-oauth2').Strategy,
+	TwitterStrategy = require('passport-twitter').Strategy;
 
 	
 passport.serializeUser(function(user, done) {
@@ -12,6 +13,18 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
+passport.user(new TwitterStrategy({
+    consumerKey: "UU74VnFbQuMhiTm1GGZOPcUcv",
+    consumerSecret: "9Q4LDiciDSeiieLSq8300UvOPFSeRSYrbPMAs3SjkPuoSsr8JO",
+    callbackURL: "http://cs360.jeffburgin.com/auth/twitter/return"
+  },
+  function(token, tokenSecret, profile, done) {
+	process.nextTick(function () {
+		return done(null, profile);
+	});
+  }
+));
+
 passport.use(new GoogleStrategy({
 	clientID: "404219045193-n9gvul12t0pio511jbvd3qkucbnkpa44.apps.googleusercontent.com",
 	clientSecret: "gjM9AMVwc1q_mXCuqEU_YL3-",
@@ -51,6 +64,14 @@ app.get('/auth/google/return',
   passport.authenticate('google', { 
     successRedirect: '/info', 
     failureRedirect: '/login' }));
+app.get('/auth/twitter',
+  passport.authenticate('twitter')
+);
+app.get('/auth/twitter/return',
+  passport.authenticate('twitter', {
+	successRedirect: '/info',
+	failureRedirect: '/login' }));
+  
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/login');
