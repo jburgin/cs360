@@ -17,8 +17,9 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
   },
   function(request, accessToken, profile, done) {
-  console.log(profile);
     process.nextTick(function () {
+	console.log(profile.identifier);
+      profile.identifier = identifier;
       return done(null, profile);
     });
   }
