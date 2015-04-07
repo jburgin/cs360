@@ -13,7 +13,7 @@ passport.serializeUser(function(user, done) {
 passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
-passport.user(new TwitterStrategy({
+passport.use(new TwitterStrategy({
     consumerKey: "UU74VnFbQuMhiTm1GGZOPcUcv",
     consumerSecret: "9Q4LDiciDSeiieLSq8300UvOPFSeRSYrbPMAs3SjkPuoSsr8JO",
     callbackURL: "http://cs360.jeffburgin.com/auth/twitter/return"
