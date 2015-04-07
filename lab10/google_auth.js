@@ -5,7 +5,6 @@ var express = require('express'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth2').Strategy;
 
-var User = require('./models/users_model.js');
 	
 passport.serializeUser(function(user, done) {
   done(null, user);
@@ -19,11 +18,9 @@ passport.use(new GoogleStrategy({
     callbackURL: 'http://cs360.jeffburgin.com/auth/google/return',
     passReqToCallback: true
   },
-  function(request, accessToken, refreshToken, profile, done) {
+  function(request, accessToken, refeshToken, profile, done) {
     process.nextTick(function () {
-		console.log(profile.emails);
-	  //User.findOne({"email" : profile.emails
-      //return done(null, profile);
+      return done(null, profile);
     });
   }
 ));
