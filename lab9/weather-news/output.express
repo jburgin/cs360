@@ -622,3 +622,23 @@ nohup: ignoring input
 [0mGET / [32m200 [0m2.247 ms - 1854[0m
 [0mHEAD / [32m200 [0m0.859 ms - 1854[0m
 [0mGET /manager/html [33m404 [0m1.051 ms - 1007[0m
+
+npm ERR! Linux 3.14.27-25.47.amzn1.x86_64
+npm ERR! argv "node" "/usr/local/bin/npm" "start"
+npm ERR! node v0.10.21
+npm ERR! npm  v2.6.1
+npm ERR! code ELIFECYCLE
+npm ERR! weather-news@0.0.0 start: `node ./bin/www`
+npm ERR! Exit status 143
+npm ERR! 
+npm ERR! Failed at the weather-news@0.0.0 start script 'node ./bin/www'.
+npm ERR! This is most likely a problem with the weather-news package,
+npm ERR! not with npm itself.
+npm ERR! Tell the author that this fails on your system:
+npm ERR!     node ./bin/www
+npm ERR! You can get their info via:
+npm ERR!     npm owner ls weather-news
+npm ERR! There is likely additional logging output above.
+
+npm ERR! Please include the following file with any support request:
+npm ERR!     /var/node/lab9/weather-news/npm-debug.log
