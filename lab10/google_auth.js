@@ -18,7 +18,6 @@ passport.use(new GoogleStrategy({
   },
   function(request, accessToken, profile, done) {
     process.nextTick(function () {
-      //profile.identifier = identifier;
       return done(null, profile);
     });
   }
