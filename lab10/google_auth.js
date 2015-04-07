@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(expressSession({ secret: 'SECRET' }));
-app.use(passport.initialize());
+app.use(passport.initialize()); 
 app.use(passport.session());
 app.use(express.static(__dirname + '/static'));
 app.get('/login', function(req, res){
