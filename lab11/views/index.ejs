@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> from <%= pid %></p>
-  </body>
+<head>
+  <title>Cluster</title>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.min.js"></script>
+
+<script src="/javascripts/angularApp.js"></script>
+</head>
+
+<body ng-app="clusterApp" ng-controller="MainCtrl">
+    <ul>
+    <div ng-repeat="node in cluster">
+      <li>{{node.pid}}</ul>
+    </div>
+   </ul>
+</body>
 </html>
