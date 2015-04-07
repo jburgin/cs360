@@ -11,8 +11,8 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 passport.use(new GoogleStrategy({
-    returnURL: 'http://localhost/auth/google/return',
-    realm: 'http://localhost/'
+    returnURL: 'http://cs360.jeffburgin.com/auth/google/return',
+    realm: 'http://cs360.jeffburgin.com/'
   },
   function(identifier, profile, done) {
     process.nextTick(function () {
