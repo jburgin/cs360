@@ -42,7 +42,10 @@ app.get('/login', function(req, res){
   }
 });
 app.get('/auth/google', 
-  passport.authenticate('google'));
+  passport.authenticate('google', { scope: 
+    [ 'https://www.googleapis.com/auth/plus.login',
+    , 'https://www.googleapis.com/auth/plus.profile.emails.read' ] }
+  ));
 app.get('/auth/google/return', 
   passport.authenticate('google', { 
     successRedirect: '/info', 
