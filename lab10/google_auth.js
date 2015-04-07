@@ -4,6 +4,9 @@ var express = require('express'),
     expressSession = require('express-session'),
     passport = require('passport'),
     GoogleStrategy = require('passport-google-oauth2').Strategy;
+
+var User = require('./models/users_model.js');
+	
 passport.serializeUser(function(user, done) {
   done(null, user);
 });
@@ -17,9 +20,11 @@ passport.use(new GoogleStrategy({
     passReqToCallback: true
   },
   function(request, accessToken, profile, done) {
-    //process.nextTick(function () {
-      return done(null, profile);
-    //});
+    process.nextTick(function () {
+		console.log(profile.emails);
+	  //User.findOne({"email" : profile.emails
+      //return done(null, profile);
+    });
   }
 ));
 var app = express();
