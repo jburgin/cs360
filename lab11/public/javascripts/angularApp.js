@@ -4,8 +4,15 @@ angular.module('clusterApp', [])
   function($scope, $http){
     $scope.cluster = [{pid:1234}];
 	$scope.getPIDs = function() {
-	  $scope.cluster = [{pid:12},{pid:34}];
+		$scope.cluster = [{pid:12},{pid:34}];
 	}
+	$scope.getMyPIDs = function() {
+		$http.get('/pid').success(function(data){
+		  console.log("getAll");
+		  console.log(data);
+		  $scope.cluster.push(data);
+		});
+    }
   } 
 ]);
  
