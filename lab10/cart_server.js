@@ -58,7 +58,7 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/static'));
 app.get('/login', function(req, res){
   if(req.isAuthenticated()){
-    res.redirect('/');
+    res.redirect('/?user=' + req.user);
   } else{
     res.render('login', { user: req.user });
   }
