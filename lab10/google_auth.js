@@ -20,7 +20,6 @@ passport.use(new TwitterStrategy({
   },
   function(token, tokenSecret, profile, done) {
 	process.nextTick(function () {
-		console.log(profile);
 		return done(null, profile);
 	});
   }
