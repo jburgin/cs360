@@ -58,7 +58,7 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/static'));
 app.get('/login', function(req, res){
   if(req.isAuthenticated()){
-    res.redirect('/info');
+    res.redirect('/');
   } else{
     res.render('login', { user: req.user });
   }
@@ -70,25 +70,25 @@ app.get('/auth/google',
   ));
 app.get('/auth/google/return', 
   passport.authenticate('google', { 
-    successRedirect: '/info', 
+    successRedirect: '/', 
     failureRedirect: '/login' }));
 app.get('/auth/twitter',
   passport.authenticate('twitter')
 );
 app.get('/auth/twitter/return',
   passport.authenticate('twitter', {
-	successRedirect: '/info',
+	successRedirect: '/',
 	failureRedirect: '/login' }));
   
 app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/login');
 });
-app.get('/info', function(req, res){
+/*app.get('/info', function(req, res){
   if(req.isAuthenticated()){
     res.render('info', { user: req.user });
   } else {
     res.redirect('/login');
   }
-});
+});*/
 app.listen(80);
