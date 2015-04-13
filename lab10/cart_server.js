@@ -92,8 +92,8 @@ app.get('/logout', function(req, res){
   );
   app.get('/', function(req, res){
 	if (req.user) {
-		console.log(req.user.name);
-		res.render('shopping', { user: req.user.name });
+		console.log(req.user.displayName);
+		res.render('shopping', { user: req.user.displayName });
 	} else {
 		res.render('login', { user: req.user });
 	}
