@@ -1,14 +1,14 @@
 <!doctype html>
 <html ng-app="myApp">
 <head>
-  <title>{{user.name}}'s Cart</title>
+  <title>Shopping Cart</title>
   <link rel="stylesheet" type="text/css" 
       href="/static/css/cart_styles.css" />
 </head>
 <body>
   <div ng-controller="shoppingController">
     <div id="banner">
-      <div id="title">My Store</div>
+      <div id="title">{{user.name}}'s Store</div>
       <div id="bar">
         <span class="orders" 
           ng-click="setContent('orders.html')">Orders</span>
