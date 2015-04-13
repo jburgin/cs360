@@ -8,8 +8,11 @@ module.exports = function(app) {
       use('/lib', express.static( './lib')
   );
   app.get('/', function(req, res){
-	console.log(req.user);
-	res.render('shopping', { user: req.user });
+	if (req.user) {
+		res.render('shopping');
+	} else {
+		res.render('login', { user: req.user });
+	}
   });
   app.get('/products/get', products.getProducts);
   app.get('/orders/get', orders.getOrders);
