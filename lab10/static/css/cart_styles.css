@@ -4,7 +4,7 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
   border-radius:5px; width:400px; }
 #banner{ border-bottom: 2px darkgray ridge; height:100px; position: relative; }
 #title { text-align:center; background-color: rgba(0,0,0,.5);
-  font:36px/60px Georgia, serif; border-radius: 5px; position: absolute; top: 0; width: 100%; }
+  font:36px/60px Georgia, serif; border-radius: 5px; position: absolute; top: 0; width: 100%; color: white; }
 #bar { background-color:#565554; }
 #name { float: right; text-align: left; padding-top: 10px; padding-right: 15px;}
 #cartLink { float:right; text-align:right; cursor:pointer }
