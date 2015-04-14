@@ -52,22 +52,22 @@ Product.remove().exec(function(){
           billing: customer.billing
         });
         order.save(function(err, result){
-          addProduct(customer, order, 'Delicate Arch Print', 
-              'arch.jpg', 12.34, 
-              'View of the breathtaking Delicate Arch in Utah', 
+          addProduct(customer, order, 'Buy an A', 
+              'a.jpg', 12.34, 
+              'Everyone wants one, but only a few are willing to sacrifice for it.', 
               Math.floor((Math.random()*10)+1));
-          addProduct(customer, order, 'Volcano Print', 
-              'volcano.jpg', 45.45, 
-              'View of a tropical lake backset by a volcano', 
+          addProduct(customer, order, 'Buy a B', 
+              'b.jpg', 45.45, 
+              'A little easier to obtain, the majority of people choose this one.', 
               Math.floor((Math.random()*10)+1));
-          addProduct(customer, order, 'Tikal Structure Print', 
-              'pyramid.jpg', 38.52, 
-              'Look at the amazing architecture of early America.', 
+          addProduct(customer, order, 'Buy a C', 
+              'c.jpg', 38.52, 
+              'Looking to just pass the class and ruin your GPA? This is the option for you.', 
               Math.floor((Math.random()*10)+1));
-          addProduct(customer, order, 'Glacial Lake Print', 
+          /*addProduct(customer, order, 'Glacial Lake Print', 
               'lake.jpg', 77.45, 
               'Vivid color, crystal clear water from glacial runoff.', 
-              Math.floor((Math.random()*10)+1));
+              Math.floor((Math.random()*10)+1));*/
         });
       });      
     });
