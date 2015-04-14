@@ -53,15 +53,15 @@ Product.remove().exec(function(){
         });
         order.save(function(err, result){
           addProduct(customer, order, 'Buy an A', 
-              'a.jpg', 12.34, 
+              'a.jpg', 2500.00, 
               'Everyone wants one, but only a few are willing to sacrifice for it.', 
               Math.floor((Math.random()*10)+1));
           addProduct(customer, order, 'Buy a B', 
-              'b.jpg', 45.45, 
+              'b.jpg', 1250.00, 
               'A little easier to obtain, the majority of people choose this one.', 
               Math.floor((Math.random()*10)+1));
           addProduct(customer, order, 'Buy a C', 
-              'c.jpg', 38.52, 
+              'c.jpg', 500.00, 
               'Looking to just pass the class and ruin your GPA? This is the option for you.', 
               Math.floor((Math.random()*10)+1));
           /*addProduct(customer, order, 'Glacial Lake Print', 
