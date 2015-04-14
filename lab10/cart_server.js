@@ -57,7 +57,7 @@ app.use(passport.session());
 app.use(express.static(__dirname + '/static'));
 app.get('/login', function(req, res){
   if(req.isAuthenticated()){
-    res.redirect('/?user=' + req.user);
+    res.redirect('/');
   } else{
     res.render('login', { user: req.user });
   }
@@ -93,7 +93,7 @@ app.get('/logout', function(req, res){
   app.get('/', function(req, res){
 	if (req.user) {
 		console.log(req.user.displayName);
-		res.render('shopping', { user: req.user.displayName });
+		res.render('shopping', { user: req.user });
 	} else {
 		res.render('login', { user: req.user });
 	}
