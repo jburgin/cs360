@@ -12,7 +12,7 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
 #main {clear:both;}
 #gradimg {max-height: 500px; overflow: hidden; }
 #gradimg img {width: 100%;}
-.listItem{border-bottom: 1px solid black; clear:both;
+.listItem{border-top: 1px solid black; clear:both;
   margin-top:10px }
 .listImg { height:50px; vertical-align:top }
 .fullImg { width:300px; vertical-align:top }
@@ -41,6 +41,6 @@ span.delete { cursor:pointer; display:inline-block; float:right;
   font: bold 13px/20px Arial, Sans-serif; 
   margin-right:20px; width:80px; }
 span.orders{ margin-top:5px; margin-right:10px;
-  background-image: -webkit-linear-gradient(top, #FFCC66, #FFFF99);}
+  background-image: -webkit-linear-gradient(top, #6495ED, #ADD8E6);}
 input.security { width:30px }
 div.review{ display:inline-block; width:45%; vertical-align:top; }
