@@ -5,7 +5,7 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
 #banner{ border-bottom: 2px blue ridge; height:100px }
 #title { text-align:center; background-color:#a0d0ff;
   font:italic bold 48px/60px Georgia, serif; border-radius: 5px }
-#bar { background-color:#a0d0ff; }
+#bar { background-color:#565554; }
 #cartLink { float:right; text-align:right; cursor:pointer }
 #cartLink img { height:25px; }
 #main {clear:both;}
