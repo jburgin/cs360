@@ -9,13 +9,14 @@
   <div ng-controller="shoppingController">
     <div id="banner">
       <div id="title">Class grades for sell!</div>
-      <div id="bar">Welcome <%= user.displayName %>!
+      <div id="bar">
         <span class="orders" 
           ng-click="setContent('orders.html')">Orders</span>
         <span id="cartLink" ng-click="setContent('cart.html')">
             {{customer.cart.length}} items
             <img src="/images/cart.png" />
         </span>
+		<span id="name">Welcome <%= user.displayName %>!</span>
       </div>
     </div>
     <div id="main">

@@ -6,6 +6,7 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
 #title { text-align:center; background-color:darkgray;
   font:bold 48px/60px Georgia, serif; border-radius: 5px }
 #bar { background-color:#565554; }
+#name { float: right; text-align: right; }
 #cartLink { float:right; text-align:right; cursor:pointer }
 #cartLink img { height:25px; }
 #main {clear:both;}
