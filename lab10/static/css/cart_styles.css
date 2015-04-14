@@ -10,6 +10,8 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
 #cartLink { float:right; text-align:right; cursor:pointer }
 #cartLink img { height:25px; }
 #main {clear:both;}
+#gradimg {max-height: 500px; overflow: hidden; }
+#gradimg img {width: 100%;}
 .listItem{border-bottom: 1px solid black; clear:both;
   margin-top:10px }
 .listImg { height:50px; vertical-align:top }
