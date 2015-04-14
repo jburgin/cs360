@@ -3,7 +3,7 @@ label {width:100px; display:inline-block; text-align:right; }
 input[type="text"]{ border: 2px ridge blue; padding:3px; 
   border-radius:5px; width:400px; }
 #banner{ border-bottom: 2px darkgray ridge; height:100px }
-#title { text-align:center; background-color:#darkgray;
+#title { text-align:center; background-color:darkgray;
   font:italic bold 48px/60px Georgia, serif; border-radius: 5px }
 #bar { background-color:#565554; }
 #cartLink { float:right; text-align:right; cursor:pointer }
