@@ -9,7 +9,7 @@ input[type="text"]{ border: 2px ridge blue; padding:3px;
 #name { float: right; text-align: left; padding-top: 10px; padding-right: 15px;}
 #cartLink { float:right; text-align:right; cursor:pointer }
 #cartLink img { height:25px; }
-#main {clear:both; margin-top: 20px;}
+#main {clear:both; padding-top: 20px;}
 #gradimg {max-height: 500px; overflow: hidden; }
 #gradimg img {width: 100%;}
 .listItem{clear:both;
